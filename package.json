@@ -1,0 +1,62 @@
+{
+  "name": "gatsby-starter-default",
+  "description": "Gatsby default starter",
+  "version": "1.0.0",
+  "author": "Mikael Boutin <mikaelboutin.dw@gmail.com>",
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "classnames": "^2.2.6",
+    "gatsby": "^2.15.12",
+    "gatsby-image": "^2.2.18",
+    "gatsby-plugin-manifest": "^2.2.16",
+    "gatsby-plugin-offline": "^3.0.5",
+    "gatsby-plugin-react-helmet": "^3.1.7",
+    "gatsby-plugin-sass": "^2.1.14",
+    "gatsby-plugin-sharp": "^2.2.21",
+    "gatsby-plugin-typescript": "^2.1.7",
+    "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-transformer-sharp": "^2.2.14",
+    "node-sass": "^4.12.0",
+    "omit.js": "^1.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-intl": "^3.2.1",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "typescript": "^3.6.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:update": "jest --updateSnapshot"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.4",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "^16.9.0",
+    "redux-devtools-extension": "^2.13.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DWboutin/gatsby-react-intl-starter"
+  }
+}
