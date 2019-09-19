@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import { SwitchLanguage } from '../i18n'
+import { HeaderProps } from '../models/components/Header'
 
-const Header = props => {
-  const siteTitle: string = props.siteTitle
-
+const Header = ({ siteTitle }: HeaderProps) => {
   return (
     <div>
       <div>

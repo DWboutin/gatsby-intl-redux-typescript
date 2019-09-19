@@ -1,7 +1,9 @@
 import { combineReducers, createStore } from 'redux'
 import { devToolsEnhancer } from 'redux-devtools-extension'
 
-import applicationReducer, { INITIAL_STATE as applicationInitialState } from './application/applicationReducer'
+import applicationReducer, {
+  INITIAL_STATE as applicationInitialState
+} from './application/applicationReducer'
 
 console.log('applicationInitialState', applicationInitialState)
 declare global {

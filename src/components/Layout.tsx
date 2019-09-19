@@ -1,10 +1,11 @@
-import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react'
 
+import { LayoutProps } from '../models/components/Layout'
 import Header from './Header'
 
-const Layout = ({ children, handleLanguageChange }) => (
+const Layout = ({ children }: LayoutProps) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -17,10 +18,7 @@ const Layout = ({ children, handleLanguageChange }) => (
     `}
     render={data => (
       <>
-        <Header
-          siteTitle={data.site.siteMetadata.title}
-          handleLanguageChange={handleLanguageChange}
-        />
+        <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
             margin: '0 auto',

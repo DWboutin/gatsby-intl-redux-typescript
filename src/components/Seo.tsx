@@ -1,9 +1,11 @@
-import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
+import React from 'react'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+import { SeoProps } from '../models/components/Seo'
+
+function SEO({ description, lang, keywords, title }: SeoProps) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -50,16 +52,14 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: 'twitter:description',
                 content: metaDescription
               }
-            ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                      name: 'keywords',
-                      content: keywords.join(', ')
-                    }
-                  : []
-              )
-              .concat(meta)}
+            ].concat(
+              keywords.length > 0
+                ? {
+                    name: 'keywords',
+                    content: keywords.join(', ')
+                  }
+                : []
+            )}
           />
         )
       }}

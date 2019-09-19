@@ -1,31 +1,34 @@
-import React from 'react'
 import { navigate } from 'gatsby'
+import React from 'react'
 import { IntlProvider } from 'react-intl'
 
+import { WithIntlProps, WithIntlState } from '../models/i18n/WithIntl'
 import { messages } from './locales'
 import stripLanguageFromUrl from './stripLanguageFromUrl'
 
-import { siteMetadata } from '../../gatsby-config'
+export const LanguageContext = React.createContext({
+  locale: 'en',
+  baseLocale: 'en',
+  handleLanguageChange: (_event: React.ChangeEvent<any>): void => {}
+})
 
-export const LanguageContext = React.createContext()
-
-class WithIntl extends React.PureComponent {
-  constructor(props) {
+class WithIntl extends React.PureComponent<WithIntlProps, WithIntlState> {
+  constructor(props: WithIntlProps) {
     super(props)
 
     this.state = {
-      locale: this.props.pageContext.locale || siteMetadata.baseLanguage
+      locale: props.pageContext.locale || props.baseLanguage
     }
 
     this.handleLanguageChange = this.handleLanguageChange.bind(this)
   }
 
-  handleLanguageChange(event) {
-    const { value } = event.target
+  handleLanguageChange(_event: React.ChangeEvent<any>): void {
+    const { value } = _event.target
     const { pathname } = this.props.location
     const strippedPathname = stripLanguageFromUrl(pathname)
     const redirectPath =
-      siteMetadata.baseLanguage === value
+      this.props.baseLanguage === value
         ? strippedPathname
         : `/${value}${strippedPathname}`
 
@@ -45,7 +48,7 @@ class WithIntl extends React.PureComponent {
       <LanguageContext.Provider
         value={{
           locale: this.state.locale,
-          baseLocale: siteMetadata.baseLanguage,
+          baseLocale: this.props.baseLanguage,
           handleLanguageChange: this.handleLanguageChange
         }}
       >
