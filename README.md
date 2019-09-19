@@ -1,1 +1,1 @@
-# Conecto UI kit# gatsby-intl-redux-typescript
+# gatsby-intl-redux-typescript
