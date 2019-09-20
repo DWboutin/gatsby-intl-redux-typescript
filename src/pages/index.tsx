@@ -3,8 +3,9 @@ import { FormattedMessage } from 'react-intl'
 
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
+import { PageContext } from '../models/general/PagesDefinition'
 
-const IndexPage = ({ pageContext }) => (
+const IndexPage = ({ pageContext }: { pageContext: PageContext }) => (
   <Layout>
     <SEO
       lang={pageContext.locale}

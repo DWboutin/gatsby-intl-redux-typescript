@@ -8,3 +8,9 @@ export interface WithIntlProps extends WrapPageElementProps {
 export interface WithIntlState {
   locale: string
 }
+
+export interface LanguageContextProps {
+  locale: string
+  baseLocale: string
+  handleLanguageChange(_event: React.ChangeEvent<any>): void
+}

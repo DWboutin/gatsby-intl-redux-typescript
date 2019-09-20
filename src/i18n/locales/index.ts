@@ -7,7 +7,7 @@ export const languages = [
 ]
 export const baseMessages = fr
 
-export const messages = {
+export const messages: any = {
   en,
   fr
 }

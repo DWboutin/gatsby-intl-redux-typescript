@@ -1,8 +1,7 @@
-import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { SwitchLanguage } from '../i18n'
+import { Link, SwitchLanguage } from '../i18n'
 import { HeaderProps } from '../models/components/Header'
 
 const Header = ({ siteTitle }: HeaderProps) => {

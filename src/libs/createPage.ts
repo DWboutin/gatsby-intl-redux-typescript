@@ -8,19 +8,15 @@ export const onCreatePage = ({ page, actions }: OnCreatePageArg) => {
     return Promise.resolve()
   }
 
-  // if (result.errors) {
-  //   throw result.errors
-  // }
-
   languages.forEach(({ value }) => {
     /**
-         * Example for client-side only pages
-         * It will keep the last part of the URL when you change language
-         
-        if (page.path.match(/^\/client-side-page/)) {
-          page.matchPath = (value !== baseLanguage) ? `/${value}/client-side-page/*` : '/client-side-page/*';
-        }
-        */
+     * Example for client-side only pages
+     * It will keep the last part of the URL when you change language
+     
+    if (page.path.match(/^\/client-side-page/)) {
+      page.matchPath = (value !== baseLanguage) ? `/${value}/client-side-page/*` : '/client-side-page/*';
+    }
+    */
 
     const pageLocalePath = value !== 'en' ? `/${value}${page.path}` : page.path
     const localePage = {

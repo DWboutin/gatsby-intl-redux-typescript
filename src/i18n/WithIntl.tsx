@@ -3,14 +3,9 @@ import React from 'react'
 import { IntlProvider } from 'react-intl'
 
 import { WithIntlProps, WithIntlState } from '../models/i18n/WithIntl'
+import LanguageContext from './LanguageContext'
 import { messages } from './locales'
 import stripLanguageFromUrl from './stripLanguageFromUrl'
-
-export const LanguageContext = React.createContext({
-  locale: 'en',
-  baseLocale: 'en',
-  handleLanguageChange: (_event: React.ChangeEvent<any>): void => {}
-})
 
 class WithIntl extends React.PureComponent<WithIntlProps, WithIntlState> {
   constructor(props: WithIntlProps) {
