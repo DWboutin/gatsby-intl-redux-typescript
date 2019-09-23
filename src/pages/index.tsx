@@ -1,6 +1,7 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
+import { Button } from '../_components'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 import { PageContext } from '../models/general/PagesDefinition'
@@ -13,8 +14,9 @@ const IndexPage = ({ pageContext }: { pageContext: PageContext }) => (
       keywords={['gatsby', 'application', 'react']}
     />
     <h1>
-      <FormattedMessage id="string1" />
+      <FormattedMessage id="buttons" />
     </h1>
+    <Button>SCSS button</Button>
   </Layout>
 )
 

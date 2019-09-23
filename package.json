@@ -5,18 +5,17 @@
   "author": "Mikael Boutin <mikaelboutin.dw@gmail.com>",
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "@types/styled-components": "^4.1.19",
     "classnames": "^2.2.6",
     "gatsby": "^2.15.18",
     "gatsby-image": "^2.2.19",
     "gatsby-plugin-manifest": "^2.2.17",
     "gatsby-plugin-offline": "^3.0.7",
     "gatsby-plugin-react-helmet": "^3.1.7",
-    "gatsby-plugin-sass": "^2.1.14",
     "gatsby-plugin-sharp": "^2.2.24",
     "gatsby-plugin-typescript": "^2.1.8",
     "gatsby-source-filesystem": "^2.1.24",
     "gatsby-transformer-sharp": "^2.2.15",
-    "node-sass": "^4.12.0",
     "omit.js": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -25,6 +24,7 @@
     "react-intl": "^3.2.4",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
+    "styled-components": "^4.4.0",
     "typescript": "^3.6.3"
   },
   "keywords": [
@@ -38,30 +38,46 @@
     "format": "npm run format:src && npm run format:root",
     "format:src": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "format:root": "prettier --write \"./*.js\"",
+    "transpile": "babel src/_components/ --extensions \".ts,.tsx\" --ignore \"**/*.d.ts\" -d dist --copy-files",
+    "clean": "rm -rf .cache public dist",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:update": "jest --updateSnapshot"
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.18",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.5",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.10",
     "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.14",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
+    "husky": "^3.0.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.9.0",
     "redux-devtools-extension": "^2.13.8",
     "source-map-support": "^0.5.13",
+    "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/DWboutin/gatsby-react-intl-starter"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run transpile"
+    }
   }
 }

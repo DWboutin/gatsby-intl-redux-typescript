@@ -1,7 +1,7 @@
 const messages = {
   lang_fr: 'Français',
   lang_en: 'English',
-  string1: 'Français'
+  buttons: 'Boutons'
 }
 
 export default messages
