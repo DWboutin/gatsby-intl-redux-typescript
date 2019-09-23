@@ -38,7 +38,7 @@
     "format": "npm run format:src && npm run format:root",
     "format:src": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "format:root": "prettier --write \"./*.js\"",
-    "transpile": "babel src/_components/ --extensions \".ts,.tsx\" --ignore \"**/*.d.ts\" -d dist --copy-files",
+    "transpile": "npm run build && babel src/_components/ --extensions \".ts,.tsx\" --ignore \"**/__tests__/**\" -d dist",
     "clean": "rm -rf .cache public dist",
     "test": "jest",
     "test:watch": "jest --watch",
