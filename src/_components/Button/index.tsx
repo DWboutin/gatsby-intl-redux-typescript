@@ -1,11 +1,7 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 
-import { ComponentProps } from '../../models/general/ComponentProps'
-
-export interface ButtonProps extends ComponentProps {
-  variant: 'primary' | 'secondary'
-}
+import { ButtonProps } from './index.d'
 
 const Container = styled.button`
   background-color: ${(props: ButtonProps) =>
@@ -17,7 +13,7 @@ const Container = styled.button`
   }
 `
 
-const Button = ({ children, ...props }: ButtonProps) => {
+const Button: FunctionComponent<ButtonProps> = ({ children, ...props }) => {
   return <Container {...props}>{children}</Container>
 }
 
