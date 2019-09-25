@@ -1,5 +1,5 @@
 # gatsby-intl-redux-typescript
-A fully fonctionnal stater for Gatsby to build website or UI kits.
+A fully (needs love for Jest/Enzyme) fonctionnal stater for Gatsby to build website or UI kits.
 
 ## Build a website
 `npm start` to develop
