@@ -79,7 +79,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run transpile"
+      "pre-commit": "npm run transpile && git add dist/"
     }
   }
 }
