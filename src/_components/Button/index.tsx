@@ -3,10 +3,13 @@ import styled from 'styled-components'
 
 import { ComponentProps } from '../../models/general/ComponentProps'
 
-export interface ButtonProps extends ComponentProps {}
+export interface ButtonProps extends ComponentProps {
+  variant: 'primary' | 'secondary'
+}
 
-const StyledButton = styled.button`
-  background-color: #fff;
+const Container = styled.button`
+  background-color: ${(props: ButtonProps) =>
+    props.variant === 'primary' ? '#fff' : 'blue'};
   color: black;
 
   &:hover {
@@ -14,8 +17,12 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ children }: ButtonProps) => {
-  return <StyledButton>{children}</StyledButton>
+const Button = ({ children, ...props }: ButtonProps) => {
+  return <Container {...props}>{children}</Container>
+}
+
+Button.defaultProps = {
+  variant: 'primary'
 }
 
 export default Button

@@ -16,7 +16,8 @@ const IndexPage = ({ pageContext }: { pageContext: PageContext }) => (
     <h1>
       <FormattedMessage id="buttons" />
     </h1>
-    <Button>SCSS button</Button>
+    <Button>Styled button</Button>
+    <Button variant="secondary">Styled button</Button>
   </Layout>
 )
 
