@@ -3,6 +3,7 @@
   "description": "Gatsby default starter",
   "version": "1.0.0",
   "author": "Mikael Boutin <mikaelboutin.dw@gmail.com>",
+  "main": "./dist/index.js",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@types/styled-components": "^4.1.19",
