@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 interface ButtonProps {
-  variant: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary'
 }
 
 declare const Button: React.FunctionComponent<ButtonProps>
