@@ -5,7 +5,11 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable'
 import { RootState } from '../models/store'
 import applicationReducer, {
   INITIAL_STATE as applicationInitialState
-} from './application/applicationReducer'
+} from './application/application'
+import localReducer, {
+  INITIAL_STATE as localInitialState,
+  localEpics
+} from './local/local'
 
 declare global {
   interface Window {
@@ -14,14 +18,16 @@ declare global {
 }
 
 const epicMiddleware = createEpicMiddleware()
-const rootEpic = combineEpics()
+const rootEpic = combineEpics(localEpics.saveEpic)
 
 const initialState: RootState = {
-  application: applicationInitialState
+  application: applicationInitialState,
+  local: localInitialState
 }
 
 const reducers = combineReducers({
-  application: applicationReducer
+  application: applicationReducer,
+  local: localReducer
 })
 
 const store: Store = createStore(
