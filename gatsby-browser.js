@@ -20,7 +20,5 @@ export const wrapPageElement = ({ element, props }) => {
 }
 
 export const onClientEntry = () => {
-  try {
-    store.dispatch(LocalActions.setState(get('local-store')))
-  } catch {}
+  store.dispatch(LocalActions.setState(get('local-store')))
 }

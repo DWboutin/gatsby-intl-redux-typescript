@@ -10,7 +10,7 @@ import { LocalState } from '../../models/store/local/local'
 export class LocalActions {
   static SET_STATE = 'LOCAL_SET_STATE'
 
-  public static setState(state: any): AnyAction {
+  public static setState(state: LocalState): AnyAction {
     return {
       type: LocalActions.SET_STATE,
       payload: state
