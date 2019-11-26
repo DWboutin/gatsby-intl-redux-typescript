@@ -1,5 +1,6 @@
 import produce from 'immer'
 import { AnyAction } from 'redux'
+import { combineEpics } from 'redux-observable'
 import { Observable } from 'rxjs'
 import { filter, ignoreElements, tap } from 'rxjs/operators'
 
@@ -18,7 +19,7 @@ export class LocalActions {
   }
 }
 
-export const localEpics = {
+const localEpics = {
   saveEpic: (action$: Observable<AnyAction>) =>
     action$.pipe(
       filter(action => action.type.substring(0, 5) === 'LOCAL'),
@@ -28,6 +29,8 @@ export const localEpics = {
       ignoreElements()
     )
 }
+
+export const localEpic = combineEpics(...Object.values(localEpics))
 
 export const INITIAL_STATE: LocalState = {}
 

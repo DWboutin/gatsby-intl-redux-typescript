@@ -8,8 +8,11 @@ import applicationReducer, {
 } from './application/application'
 import localReducer, {
   INITIAL_STATE as localInitialState,
-  localEpics
+  localEpic
 } from './local/local'
+import requestReducer, {
+  INITIAL_STATE as requestInitialState
+} from './request/request'
 
 declare global {
   interface Window {
@@ -18,16 +21,18 @@ declare global {
 }
 
 const epicMiddleware = createEpicMiddleware()
-const rootEpic = combineEpics(localEpics.saveEpic)
+const rootEpic = combineEpics(localEpic)
 
 const initialState: RootState = {
   application: applicationInitialState,
-  local: localInitialState
+  local: localInitialState,
+  request: requestInitialState
 }
 
 const reducers = combineReducers({
   application: applicationReducer,
-  local: localReducer
+  local: localReducer,
+  request: requestReducer
 })
 
 const store: Store = createStore(
