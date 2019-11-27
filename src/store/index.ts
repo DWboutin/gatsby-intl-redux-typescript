@@ -1,31 +1,45 @@
-import { combineReducers, createStore } from 'redux'
-import { devToolsEnhancer } from 'redux-devtools-extension'
+import { applyMiddleware, combineReducers, createStore, Store } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { combineEpics, createEpicMiddleware } from 'redux-observable'
 
+import { RootState } from '../models/store'
 import applicationReducer, {
   INITIAL_STATE as applicationInitialState
-} from './application/applicationReducer'
+} from './application/application'
+import localReducer, {
+  INITIAL_STATE as localInitialState,
+  localEpic
+} from './local/local'
+import requestReducer, {
+  INITIAL_STATE as requestInitialState
+} from './request/request'
 
-console.log('applicationInitialState', applicationInitialState)
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION__: any
   }
 }
 
-const initialState = {
-  application: applicationInitialState
+const epicMiddleware = createEpicMiddleware()
+const rootEpic = combineEpics(localEpic)
+
+const initialState: RootState = {
+  application: applicationInitialState,
+  local: localInitialState,
+  request: requestInitialState
 }
 
 const reducers = combineReducers({
-  application: applicationReducer
+  application: applicationReducer,
+  local: localReducer,
+  request: requestReducer
 })
 
-const store = createStore(
+const store: Store = createStore(
   reducers,
   initialState,
-  devToolsEnhancer({
-    name: 'Starter'
-  })
+  composeWithDevTools(applyMiddleware(epicMiddleware))
 )
+epicMiddleware.run(rootEpic)
 
 export { store }
