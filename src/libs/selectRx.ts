@@ -15,7 +15,7 @@ const get = (object: any, path: any[]): any => {
   }
 }
 
-export const observe$ = (query: string[]): Observable<any> => {
+export const observe$ = <T = any>(query: string[]): Observable<T> => {
   return masterStoreObservable.pipe(
     startWith(store.getState()),
     map((rootState: RootState) => get(rootState, query)),
